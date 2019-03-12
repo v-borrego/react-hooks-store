@@ -16,7 +16,7 @@ export const SearchBarComponent: React.FunctionComponent<SearchBarProps> = ({ on
       <TextField
         value={searchText}
         label="Repository topics"
-        placeholder="Search github user by repositories topics"
+        placeholder="React redux javascript typescript..."
         onChange={e => setSearchText(e.target.value)}
         classes={{ root: classes.inputText }}
       />

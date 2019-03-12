@@ -15,14 +15,14 @@ class AppLayoutComponentInner extends React.Component<AppLayoutComponentProps, A
     super(props);
 
     this.state = {
-      open: false,
+      open: true,
     };
   }
 
   onToggleMenu = () => {
-    this.setState({
-      open: !this.state.open,
-    });
+    // this.setState({
+    //   open: !this.state.open,
+    // });
   };
 
   render() {

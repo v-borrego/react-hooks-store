@@ -1,42 +1,33 @@
 import * as React from "react";
 import { SearchBarComponent } from "./components/search-bar.component";
 
-import { Avatar } from "@material-ui/core";
-
-import { getState } from "../../app.provider";
+import ListItem from "@material-ui/core/ListItem/ListItem";
+import Avatar from "@material-ui/core/Avatar/Avatar";
 import { searchRepositoriesTopics } from "../../api";
+import { getAppState } from "../../app";
+import { setLoadingAction, setRepositoriesAction } from "./search-store.actions";
 
 export const SearchStorePageComponent = () => {
-  const [state, dispatch] = getState();
+  const [{ user, searchRepositories }, dispatch] = getAppState();
 
   const handleOnSearch = (searchText: string) => {
+    dispatch(setLoadingAction(true));
     searchRepositoriesTopics(searchText).then(response => {
-      dispatch({
-        type: "setRepositories",
-        payload: response.items.filter(x => x.owner.type === "User"),
-      });
-    });
-  };
-
-  const handleSetUserToVictor = () => {
-    dispatch({
-      type: "setUser",
-      payload: "Victor",
+      dispatch(setRepositoriesAction(response.items));
     });
   };
 
   return (
     <>
+      <p>Current user: {user.name || "Unknown"}</p>
+      {searchRepositories.loading && <p>Loading...</p>}
       <SearchBarComponent onSearch={handleOnSearch} />
-      <button onClick={handleSetUserToVictor}>Set user to Victor</button>
-      {state && state.user && <div>User: {state.user}</div>}
-      {state &&
-        state.repositories.map(x => (
-          <div key={x.id}>
-            <Avatar src={x.owner.avatar_url} />
-            {x.description} {x.score} {x.stargazers_count}
-          </div>
-        ))}
+      {searchRepositories.repositories.map(x => (
+        <ListItem key={x.id}>
+          <Avatar src={x.owner.avatar_url} />
+          {x.description} {x.score} {x.stargazers_count}
+        </ListItem>
+      ))}
     </>
   );
 };

@@ -6,8 +6,18 @@ import { SvgLoader } from "../../common/components/svg-loader";
 const config: AppLayoutComponentConfig = {
   menu: [
     {
-      text: "Option 1",
+      text: "Use Hooks Store user",
       linkTo: "/home",
+      icon: <SvgLoader image={desktop} />,
+    },
+    {
+      text: "Use local hook state",
+      linkTo: "/use-state",
+      icon: <SvgLoader image={desktop} />,
+    },
+    {
+      text: "Hooks Store repos",
+      linkTo: "/store",
       icon: <SvgLoader image={desktop} />,
     },
   ],
