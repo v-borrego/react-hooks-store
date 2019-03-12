@@ -1,0 +1,12 @@
+{
+  "common": {
+    "title": "Módulo de Ejemplo"
+  },
+  "biopsy": {
+    "title": "Página Biopsia de Ejemplo",
+    "subtitle": "Este es un string distinto en cada Namespace de traducción: Comunidad de Madrid."
+  },
+  "citology": {
+    "title": "Página Citología de Ejemplo"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "common": {
+     "title": "Módulo de Ejemplo",
+    "menu": {
+      "biopsy": "Biopsia",
+      "biopsyRequest": "Solicitud de biopsia",
+      "biopsyReports": "Informes",
+      "biopsySearch": "Buscar",
+      "citology": "Citología",
+      "citologyRequets": "Solicitud de estudio citológico",
+      "citologySearch": "Informes"
+    },
+    "dialogBox": {
+      "okButton": "OK",
+      "cancelButton": "Cancelar"
+    }
+  },
+  "biopsy": {
+    "title": "Página Biopsia de Ejemplo",
+    "subtitle": "Este es un string distinto en cada Namespace de traducción: DEFAULT."
+  },
+  "citology": {
+    "title": "Página Citología de Ejemplo",
+    "subtitle": "Subtítulo página citología"
+  }
+}
